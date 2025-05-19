@@ -1,6 +1,3 @@
-//Developed by Isaac Lanzoni;
-//Github Link:https://github.com/IsaacLanzoni;
-
 #include <stdio.h>
 #include <stdlib.h>
 
