@@ -1,7 +1,5 @@
 #include <stdio.h>
-#include <stdlib.h>
 
-//Vetor que armazena os nomes de cada pokemon em seu respectivo endereco de memoria
 const char *pokemonNames[256] = {
     [0x01] = "Rhydon",        [0x02] = "Kangaskhan",   [0x03] = "Nidoran♂",    [0x04] = "Clefairy",
     [0x05] = "Spearow",       [0x06] = "Voltorb",       [0x07] = "Nidoking",    [0x08] = "Slowbro",
@@ -53,10 +51,166 @@ const char *pokemonNames[256] = {
     [0xBD] = "Weepinbell",    [0xBE] = "Victreebel"
 };
 
+unsigned char pokedexToGameID[151] = {
+    0x99, // 001 - Bulbasaur
+    0x09, // 002 - Ivysaur
+    0x9A, // 003 - Venusaur
+    0xB0, // 004 - Charmander
+    0xB2, // 005 - Charmeleon
+    0xB4, // 006 - Charizard
+    0xB1, // 007 - Squirtle
+    0xB3, // 008 - Wartortle
+    0x1C, // 009 - Blastoise
+    0x7B, // 010 - Caterpie
+    0x7C, // 011 - Metapod
+    0x7D, // 012 - Butterfree
+    0x70, // 013 - Weedle
+    0x71, // 014 - Kakuna
+    0x72, // 015 - Beedrill
+    0x24, // 016 - Pidgey
+    0x96, // 017 - Pidgeotto
+    0x97, // 018 - Pidgeot
+    0xA5, // 019 - Rattata
+    0xA6, // 020 - Raticate
+    0x05, // 021 - Spearow
+    0x23, // 022 - Fearow
+    0x6C, // 023 - Ekans
+    0x2D, // 024 - Arbok
+    0x54, // 025 - Pikachu
+    0x55, // 026 - Raichu
+    0x60, // 027 - Sandshrew
+    0x61, // 028 - Sandslash
+    0x0F, // 029 - Nidoran♀
+    0xA8, // 030 - Nidorina
+    0x10, // 031 - Nidoqueen
+    0x03, // 032 - Nidoran♂
+    0xA7, // 033 - Nidorino
+    0x07, // 034 - Nidoking
+    0x04, // 035 - Clefairy
+    0x8E, // 036 - Clefable
+    0x52, // 037 - Vulpix
+    0x53, // 038 - Ninetales
+    0x64, // 039 - Jigglypuff
+    0x65, // 040 - Wigglytuff
+    0x6B, // 041 - Zubat
+    0x82, // 042 - Golbat
+    0xB9, // 043 - Oddish
+    0xBA, // 044 - Gloom
+    0xBB, // 045 - Vileplume
+    0x6D, // 046 - Paras
+    0x2E, // 047 - Parasect
+    0x41, // 048 - Venonat
+    0x77, // 049 - Venomoth
+    0x3B, // 050 - Diglett
+    0x76, // 051 - Dugtrio
+    0x4D, // 052 - Meowth
+    0x90, // 053 - Persian
+    0x2F, // 054 - Psyduck
+    0x80, // 055 - Golduck
+    0x39, // 056 - Mankey
+    0x75, // 057 - Primeape
+    0x21, // 058 - Growlithe
+    0x14, // 059 - Arcanine
+    0x47, // 060 - Poliwag
+    0x6E, // 061 - Poliwhirl
+    0x6F, // 062 - Poliwrath
+    0x94, // 063 - Abra
+    0x26, // 064 - Kadabra
+    0x95, // 065 - Alakazam
+    0x6A, // 066 - Machop
+    0x29, // 067 - Machoke
+    0x7E, // 068 - Machamp
+    0xBC, // 069 - Bellsprout
+    0xBD, // 070 - Weepinbell
+    0xBE, // 071 - Victreebel
+    0x18, // 072 - Tentacool
+    0x9B, // 073 - Tentacruel
+    0xA9, // 074 - Geodude
+    0x27, // 075 - Graveler
+    0x31, // 076 - Golem
+    0xA3, // 077 - Ponyta
+    0xA4, // 078 - Rapidash
+    0x25, // 079 - Slowpoke
+    0x08, // 080 - Slowbro
+    0x36, // 081 - Magnemite
+    0xAD, // 082 - Magneton
+    0x40, // 083 - Farfetch'd
+    0x46, // 084 - Doduo
+    0x74, // 085 - Dodrio
+    0x3A, // 086 - Seel
+    0x78, // 087 - Dewgong
+    0x0D, // 088 - Grimer
+    0x88, // 089 - Muk
+    0x17, // 090 - Shellder
+    0x8B, // 091 - Cloyster
+    0x19, // 092 - Gastly
+    0x93, // 093 - Haunter
+    0x0E, // 094 - Gengar
+    0x22, // 095 - Onix
+    0x30, // 096 - Drowzee
+    0x81, // 097 - Hypno
+    0x4E, // 098 - Krabby
+    0x8A, // 099 - Kingler
+    0x06, // 100 - Voltorb
+    0x8D, // 101 - Electrode
+    0x0C, // 102 - Exeggcute
+    0x0A, // 103 - Exeggutor
+    0x11, // 104 - Cubone
+    0x91, // 105 - Marowak
+    0x2B, // 106 - Hitmonlee
+    0x2C, // 107 - Hitmonchan
+    0x0B, // 108 - Lickitung
+    0x37, // 109 - Koffing
+    0x8F, // 110 - Weezing
+    0x12, // 111 - Rhyhorn
+    0x01, // 112 - Rhydon
+    0x28, // 113 - Chansey
+    0x1E, // 114 - Tangela
+    0x02, // 115 - Kangaskhan
+    0x5C, // 116 - Horsea
+    0x5D, // 117 - Seadra
+    0x9D, // 118 - Goldeen
+    0x9E, // 119 - Seaking
+    0x1B, // 120 - Staryu
+    0x98, // 121 - Starmie
+    0x2A, // 122 - Mr. Mime
+    0x1A, // 123 - Scyther
+    0x48, // 124 - Jynx
+    0x35, // 125 - Electabuzz
+    0x33, // 126 - Magmar
+    0x1D, // 127 - Pinsir
+    0x3C, // 128 - Tauros
+    0x85, // 129 - Magikarp
+    0x16, // 130 - Gyarados
+    0x13, // 131 - Lapras
+    0x4C, // 132 - Ditto
+    0x66, // 133 - Eevee
+    0x69, // 134 - Vaporeon
+    0x68, // 135 - Jolteon
+    0x67, // 136 - Flareon
+    0xAA, // 137 - Porygon
+    0x62, // 138 - Omanyte
+    0x63, // 139 - Omastar
+    0x5A, // 140 - Kabuto
+    0x5B, // 141 - Kabutops
+    0xAB, // 142 - Aerodactyl
+    0x84, // 143 - Snorlax
+    0x4A, // 144 - Articuno
+    0x4B, // 145 - Zapdos
+    0x49, // 146 - Moltres
+    0x58, // 147 - Dratini
+    0x59, // 148 - Dragonair
+    0x42, // 149 - Dragonite
+    0x83, // 150 - Mewtwo
+    0x15  // 151 - Mew
+};
+
+
+
 //Funcao que decodifica caracteres
 void decoder(unsigned char byte[11]);
 //Funcao que lê bits e retorna a quantidade de pokemons vistos/capturados
-int bitReader(unsigned char seen[19]);
+int bitReader(unsigned char seenOrCatched[19]);
 //Funcao que mostra o Trainer Id
 void Id(unsigned char Id[2]);
 //Funcao que retorna a quantidade de Insiginías
@@ -67,18 +221,17 @@ void time(unsigned char clock[4]);
 int pokeDollar(unsigned char money[3]);
 //Funcao que mostra os pokemons que o Trainer está carregando
 void party(unsigned char partySpecies[6], unsigned char partyNumber, const char *pokemonNames[256]);
-
-
-
+//Funcao que mostra os pokemons vistos pelo usuario
+int returnSeenedOrOwnedPokemons(unsigned char seenOrCatched[19], int aux);
 
 int main(){
     int i = 0; //Variavel de Controle
-    int seened = 0; //Variavel que recebe o valor da funcao bitReader
+    int seenedOrCatched = 0; //Variavel que recebe o valor da funcao bitReader & returnSeenedOrOwnedPokemons
     int badge = 0; //Variavel que recebe o valor da funcao badges
     int dollar = 0; //Variavel que recebe o valor da funcao pokeDollar
     unsigned char byte[11]; //Vetor que armazena a quantidade de bytes a serem utilizados
     unsigned char byteId[2]; //Vetor que armazena a quantidade de bits que sao utilizados no endereco de id's
-    unsigned char seen[19]; //Vetor que armazena a quantidade de bits de pokemons vistos
+    unsigned char seenOrCatched[19]; //Vetor que usado para armazenar a quantidade de bits de pokemons vistos/capturados
     unsigned char badgeByte[1]; //Vetor que armazena a quantidade de insignias possuidas
     unsigned char clock[4];//Vetor que armazena o tempo de jogo do usuario
     unsigned char money[3];//Vetor que armazena a quantidade de dinheiro do usuario
@@ -99,7 +252,7 @@ int main(){
 
     printf("\n");
 
-    while (i < 10){
+    while (i < 11){
         i++;
         //Lê o nome do Trainer
         if(i == 1){
@@ -132,16 +285,16 @@ int main(){
         //Mostra quantos Pokemons foram vistos
         if(i == 5){
             fseek(save, 0x25B6, SEEK_SET);
-            fread(seen, 1, 19, save);
-            seened = bitReader(seen);
-            printf("Pokemons Vistos: %d\n", seened);
+            fread(seenOrCatched, 1, 19, save);
+            seenedOrCatched = bitReader(seenOrCatched);
+            printf("Pokemons Vistos: %d\n", seenedOrCatched);
         }
         //Mostra quantos Pokemons foram capturados
         if(i == 6){
             fseek(save, 0x25A3, SEEK_SET);
-            fread(seen, 1, 19, save);
-            seened = bitReader(seen);
-            printf("Pokemons Vistos: %d\n", seened);
+            fread(seenOrCatched, 1, 19, save);
+            seenedOrCatched = bitReader(seenOrCatched);
+            printf("Pokemons Capturados: %d\n", seenedOrCatched);
         }
         //Mostra o Tempo de Jogo
         if(i == 7){
@@ -173,6 +326,45 @@ int main(){
                 printf("\n");
                 decoder(byte);
             }
+        }
+
+        //Mostra a lista de pokemons vistos e capturados-
+        if(i == 11){
+            printf("Pokemons Vistos:\n");
+            for(int h = 0; h < 151; h++){
+                int analizer;
+                fseek(save, 0x25B6, SEEK_SET);
+                fread(seenOrCatched, 1, 19, save);
+                analizer = returnSeenedOrOwnedPokemons(seenOrCatched, h);
+
+                unsigned char gameId = pokedexToGameID[h];
+                const char* name = pokemonNames[gameId];
+
+
+                if (name != NULL) {
+                    printf("%03d: %s: ", h + 1, name);
+                } else {
+                    printf("%03d: [ID %02X sem nome]\n", h + 1, gameId);
+                }
+
+                if(analizer == 1){
+                    printf("Visto: Sim                  ");
+                } else {
+                    printf("Visto: Nao                  ");
+                }
+
+                
+                fseek(save, 0x25A3, SEEK_SET);
+                fread(seenOrCatched, 1, 19, save);
+                analizer = returnSeenedOrOwnedPokemons(seenOrCatched, h);
+
+                if(analizer == 1){
+                    printf("Capturado: Sim\n");
+                } else {
+                    printf("Capturado: Nao\n");
+                }
+            }
+            
         }
     }
     //Fecha o Save
@@ -227,27 +419,30 @@ void decoder(unsigned char byte[11]){
 
 }
 
-int bitReader(unsigned char seen[19]){
+//Funcao que retorna a quantidade de pokemons vistos/capturados
+int bitReader(unsigned char seenOrCatched[19]){
     int see = 0;
     for(int i = 0; i < 151; i++){
         int byteIndex = i / 8;
         int bitIndex = i % 8;
-        int bit = (seen[byteIndex] >> bitIndex) & 1;
+        int bit = (seenOrCatched[byteIndex] >> bitIndex) & 1;
 
         if(bit == 1){
             see++;
         }
+        
     }
 
     return see;
 }
 
-
+//Funcao que retorna o trainer ID do usuario
 void Id(unsigned char Id[2]){
         unsigned short trainer_id = Id[0] + (Id[1] << 8);
         printf("Trainer ID:%05d\n", trainer_id);
 }
 
+//Funcao que retorna a quantidade de insignias do usuario 
 int badges(unsigned char badgeByte[1]){
     int badgeCount = 0;
 
@@ -264,11 +459,14 @@ int badges(unsigned char badgeByte[1]){
     return badgeCount;
 }
 
+
+//Funcao que retorna a quantidade de tempo do save do usuario
 void time(unsigned char clock[4]){
     printf("Tempo de Jogo:");
     printf(" %02d Horas e %02d Minutos\n", clock[0], clock[2]);
 }
 
+//Funcao que retorna a quantidade de dinheiro possuida pelo usuario
 int pokeDollar(unsigned char money[3]){
     int value = 0;
     for(int i = 0; i < 3; i++){
@@ -280,6 +478,8 @@ int pokeDollar(unsigned char money[3]){
     return value;
 }
 
+
+//Funcao que retorna os pokemons que o usuario carrega
 void party(unsigned char partySpecies[6], unsigned char partyNumber, const char *pokemonNames[256]){
    
     for(int i = 0; i < partyNumber; i++){
@@ -292,4 +492,17 @@ void party(unsigned char partySpecies[6], unsigned char partyNumber, const char 
          }
     }
 
+}
+
+int returnSeenedOrOwnedPokemons(unsigned char seenOrCatched[19], int aux){
+    
+        int byteIndex = aux / 8;
+        int bitIndex = aux % 8;
+        int bit = (seenOrCatched[byteIndex] >> bitIndex) & 1;
+
+        if (bit == 1) {
+            return 1;
+        } else{
+            return 0;
+        }
 }
