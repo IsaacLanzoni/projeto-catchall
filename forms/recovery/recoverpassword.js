@@ -85,8 +85,6 @@ function toggleSamePassword() {
 }
 
 function toggleButtonsDisable () {
-    const email = form.email().value;
-    const emailValid = isEmailValid();
     const passwordValid = isPasswordValid(); 
 
     form.loginButton().disabled = !passwordValid;
