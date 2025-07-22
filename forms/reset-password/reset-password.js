@@ -1,15 +1,11 @@
 async function onClickResetButton(){
     const email = form.email().value;
 
-    const {data, error} = await supabaseClient.auth.resetPasswordForEmail(email, {
-        email: email
-    });
-
-    if(error){
-        alert(`Erro ao tentar redefinir senha: ${error.message}`);
-    } else{
-        alert('Email de Redefinição Enviado. Verifique seu Email para mais informações');
-    }
+    const {data, error} = await supabaseClient.auth.resetPasswordForEmail(email, 
+        {
+            redirectTo: 'https://isaaclanzoni.github.io/projeto-catchall/forms/recovery/recoverpassword.html'
+        }
+    );
 }
 
 function onClickButton() {
