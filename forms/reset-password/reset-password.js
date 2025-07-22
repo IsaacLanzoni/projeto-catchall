@@ -38,7 +38,6 @@ function toggleEmailErrors() {
 function toggleButtonsDisable () {
     const email = form.email().value;
     const emailValid = isEmailValid();
-    const passwordValid = isPasswordValid(); 
 
     form.resetButton().disabled = !emailValid;
 
