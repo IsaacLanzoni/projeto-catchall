@@ -1,3 +1,10 @@
+document.addEventListener("DOMContentLoaded", async () => {
+      const { data, error } = await supabaseClient.auth.getSession();
+      if (error || !data.session) {
+        alert("Erro: sessão inválida.");
+      }
+});
+
 async function onClickRecoverButton(){
     const password = form.password().value;
 
@@ -12,12 +19,7 @@ async function onClickRecoverButton(){
     }
 }
 
-document.addEventListener("DOMContentLoaded", async () => {
-      const { data, error } = await supabaseClient.auth.getSession();
-      if (error || !data.session) {
-        alert("Erro: sessão inválida.");
-      }
-});
+
 
 
 function recoverPassword(){
