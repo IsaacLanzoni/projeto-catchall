@@ -16,7 +16,5 @@ document.addEventListener("DOMContentLoaded", async () => {
         } else {
             console.log("Sessão de recuperação iniciada com sucesso.");
         }
-    } else {
-        alert("Link de recuperação inválido ou expirado.");
-    }
+    }   
 });
