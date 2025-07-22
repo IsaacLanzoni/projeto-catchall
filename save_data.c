@@ -32,5 +32,6 @@ void exportJson(unsigned char *trainerName, int seen[], int caught[]){
     fprintf(fp, "}\n");
     fclose(fp);
 
+    system("curl -X POST http://localhost:3000/dados -H \"Content-Type: application/json\" -d @save_data.json");
     printf("JSON Salvo com sucesso no arquivo \"save_data.json\" ");
 }

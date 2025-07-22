@@ -27,7 +27,7 @@ int main(){
     
 
     FILE *save;
-    save = fopen("../save1.sav","rb");
+    save = fopen("../save2.sav","rb");
 
     //Caminho de Arquivos para testes
     //../save1.sav
