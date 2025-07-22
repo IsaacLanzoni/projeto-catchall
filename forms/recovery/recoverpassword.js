@@ -1,7 +1,7 @@
 async function onClickRecoverButton(){
     const password = form.password().value;
 
-    const {data, error} = await supabaseClient.auth.updateUser(password, {
+    const { data, error } = await supabaseClient.auth.updateUser({
         password: password
     });
 
