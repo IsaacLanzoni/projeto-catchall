@@ -1,0 +1,300 @@
+@charset "UTF-8";
+
+@import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap');  
+
+:root {
+
+    --cor0: #7F9BB0;
+    --cor1: #79B1DB;
+    --cor2: #778087;
+    --cor3: #45525C;
+    --cor4: #1E2A33 ;
+    --cor5: #152633;
+
+    --main-font: 'Jost';
+    --secondary-font: Georgia, 'Times New Roman', Times, serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    min-height: 100vh;
+    background: linear-gradient(to top, var(--cor3), var(--cor5)90%);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    font-family: var(--main-font), var(--secondary-font);
+}
+
+
+
+nav{
+    background-color: var(--cor3);
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.1);
+}
+
+nav ul{
+    width: 100%;
+    list-style: none;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+
+.data{
+    position: relative;
+    top: 7px;
+}
+
+
+main {
+    display: none;
+    margin: auto;
+    background-color: rgba(255, 255, 255, 0.967);
+    height: 400px;
+    position: relative;
+    text-align: center;
+    width: 1500px;
+    border-radius: 8px;
+    top: 7px;
+}
+
+
+h1{
+    font-size: 32px;
+}
+
+.profile-image{
+    position: relative;
+    top: 0px;
+    left: 0px;
+    height: 225px;
+    width: 225px;
+    border-radius: 50%;
+    background: linear-gradient(to top, var(--cor3), var(--cor5)90%);
+    box-shadow: var(--cor4) 0px 0px 20px;
+    z-index: 1;
+}
+
+.username-field{
+    position: relative;
+    left: 307px;
+    height: 46px;
+    width: 500px;
+    text-align: left;
+    top: -123px;
+}
+
+.pulsing{
+    position: relative;
+    top: 60px;
+    left: 40px;
+    height: 225px;
+    width: 225px;
+    border-radius: 50%;
+    background: linear-gradient(to top, var(--cor3), var(--cor5)90%);
+}
+
+.pulsing::after{
+    content: "";
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 220px;
+    height: 220px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgb(65, 65, 227) 90%, transparent 10%);
+    animation: pulse 6s infinite ease-in-out;
+    z-index: 0;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(1.065);
+    opacity: 0.6;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+}
+
+
+
+
+.email-field{
+    position: relative;
+    left: 291px;
+    width: 300px;
+    top: -229px;
+    font-size: 19px;
+}
+
+.mail-icon{
+    position: relative;
+    left: 307px;
+    height: 150px;
+    width: 150px;
+    text-align: left;
+    top: -77px;
+}
+
+.profile-image-icon{
+    position: relative;
+    width: 26px;
+    height: 26px;
+    top: 36px;
+    left: 39px;
+}
+
+button{
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+    font: inherit;
+    color: inherit;
+    cursor: pointer;
+}
+
+.switch-button{
+    position: relative;
+    width: 133px;
+    height: 36px;
+    top: -180px;
+    left: 303px;
+    background: var(--cor4);
+    border-radius: 25px;
+    color: white;
+    font-size: 20px;
+    line-height: 1.6;
+    box-shadow: #34424d 2px 0px 6px 1px;
+    transition: box-shadow 0.4s ease;
+    white-space: nowrap;
+}
+
+.switch-button:hover{
+    box-shadow: 4px 4px 12px 2px #34424d;
+}
+
+.switch-button:active{
+    transform: scale(0.99);
+}
+
+
+.email-switch{
+    width: 133px;
+    height: 36px;
+    position: relative;
+    top: -36px;
+    left: 153px;
+}
+
+.name-switch{
+    width: 133px;
+    height: 36px;
+    position: relative;
+}
+
+
+
+
+@media(max-width: 768px) {
+    main {
+        width: 90%;
+        height: auto;
+    }
+
+    main button{
+        width: 150%;
+        padding: 20px;
+    }
+}
+
+@media(max-width: 480px){
+    main {
+        width: 100%;
+        height: auto;
+    }
+
+    main button {
+        width: 100%;
+        padding: 15px;
+    }
+}
+
+
+
+nav li{
+    height: 50px;
+}
+
+nav a{
+    height: 100%;
+    padding: 0 30px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    color: white;
+}
+
+nav a:hover{
+    background-color: #778087;
+    border-radius: 30px;
+}
+
+nav li:first-child {
+    margin-right: auto;
+}
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    backdrop-filter: blur(10px);
+    width: 250px;
+    z-index: 999;
+    background-color: rgba(30, 42, 51, 0.115);
+    box-shadow: -10px 0 10px rgba(0, 0, 0, 0.1);
+    display: none;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+
+.sidebar li{
+    width: 100%;
+}
+
+.sidebar a {
+    width: 100%;
+    text-indent: 6px;
+}
+
+.menu-button {
+    display: none;
+}
+
+@media(max-width: 800px){
+    .hideOnMobile{
+        display: none;
+    }
+    .menu-button{
+        display: block;
+    }
+}
+
+@media(max-width: 400px){
+    .sidebar{
+        width: 100%;
+    }
+}

@@ -9,6 +9,26 @@ async function logout() {
     }
 }
 
+async function searchUserData(){
+    const {data: { user } } = await supabaseClient.auth.getUser();
+
+    if(user){
+        console.log("Usuário logado: ", user);
+        const {data, error} = await supabaseClient
+            .from('profiles')
+            .select('*')
+            .eq('id', user.id)
+            .single()
+    
+    
+        if(error){
+            console.log("Erro ao buscar informações do usuário: ", error);
+        } else{
+            console.log("Perfil: ", data)
+        }
+    }
+}
+
 function showSidebar(){
     const sidebar = window.document.querySelector('.sidebar');
 
@@ -21,7 +41,7 @@ function hideSidebar(){
     sidebar.style.display = 'none';
 }
 
-uploadButton.addEventListener('click', () => {
+/*uploadButton.addEventListener('click', () => {
     form.fileSave().click();
 
     const importSaveButton = window.document.querySelector('.import-save-button');
@@ -88,4 +108,4 @@ const form = {
     fileInput: () => window.document.getElementById('fileInput'),
     filePath: () => window.document.getElementById('filePath'),
     fileSave: () => window.document.getElementById('file-save')
-}
+}*/

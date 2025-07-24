@@ -12,10 +12,7 @@ async function onClickRegisterButton(){
         alert(`erro ao tentar registrar usuário: ${error.message}`);
         return
     } else {
-        setTimeout(() => {
-            window.location.href = "../home/home.html"
-        }, 3000);
-        
+        alert("Código de verificação de email enviado, verifique seu email")
     }
 }
 

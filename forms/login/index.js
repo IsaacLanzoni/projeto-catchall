@@ -11,7 +11,7 @@ async function onClickEnterButton(){
     } else{
         showLoading();
         setTimeout(() => {
-            window.location.href = "../home/home.html";
+            window.location.href = "../../pages/home/home.html";
         }, 3000);
     }
     
