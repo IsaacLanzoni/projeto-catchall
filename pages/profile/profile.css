@@ -81,10 +81,13 @@ h1{
 }
 
 .username-field{
+    gap: 6px;
+    align-items: center;
+    display: flex;
     position: relative;
     left: 307px;
     height: 46px;
-    width: 500px;
+    width: 280px;
     text-align: left;
     top: -123px;
 }
@@ -107,7 +110,7 @@ h1{
     width: 220px;
     height: 220px;
     border-radius: 50%;
-    background: radial-gradient(circle, rgb(65, 65, 227) 90%, transparent 10%);
+    background: radial-gradient(circle, var(--cor0) 90%, transparent 10%);
     animation: pulse 6s infinite ease-in-out;
     z-index: 0;
 }
@@ -127,22 +130,24 @@ h1{
   }
 }
 
-
-
-
 .email-field{
+    gap: 8px;
+    align-items: center;
+    display: flex;
     position: relative;
-    left: 291px;
-    width: 300px;
-    top: -229px;
+    left: 327px;
+    width: 500px;
+    top: -109px;
+    height: 36px;
     font-size: 19px;
+    text-align: left;
 }
 
 .mail-icon{
     position: relative;
     left: 307px;
-    height: 150px;
-    width: 150px;
+    height: 24px;
+    width: 24px;
     text-align: left;
     top: -77px;
 }
@@ -165,24 +170,97 @@ button{
     cursor: pointer;
 }
 
-.switch-button{
+.edit-name-button-style{
     position: relative;
-    width: 133px;
-    height: 36px;
-    top: -180px;
-    left: 303px;
-    background: var(--cor4);
-    border-radius: 25px;
-    color: white;
+    left: 8px;
+}
+
+.edit-email-button-style{
+    position: relative;
+    left: 8px;
+}
+
+.edit-field{
+    gap: 8px;
+    display: flex;
+    height: 45px;
+    width: 98px;
+}
+
+.input{
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+    font: inherit;
+    color: inherit;
+}
+
+.switcher-name-button{
+    position: relative;
+    width: 45px;
+    height: 42px;
+    top: 2px;
+    background: #f8f8f9;
+    border-radius: 9px;
+    color: rgba(255, 255, 255, 0.967);
     font-size: 20px;
-    line-height: 1.6;
-    box-shadow: #34424d 2px 0px 6px 1px;
+    line-height: 2.6;
+    transition: box-shadow 0.4s ease;
+    white-space: nowrap;
+}
+
+.switcher-email-button{
+    width: 45px;
+    height: 42px;
+    top: -35px;
+    left: 259px;
+    background: #f8f8f9;
+    border-radius: 9px;
+    color: rgba(255, 255, 255, 0.967);
+    font-size: 20px;
+    line-height: 2.6;
     transition: box-shadow 0.4s ease;
     white-space: nowrap;
 }
 
 .switch-button:hover{
-    box-shadow: 4px 4px 12px 2px #34424d;
+    background-color: var(--cor4);
+}
+
+.fadeIn-animation{
+    animation: fadeIn 0.3s ease forwards;
+}
+
+.fadeOut-animation {
+    animation: fadeOut 1s ease forwards;
+}
+
+
+@keyframes fadeIn {
+    from {
+        opacity: 0.4;
+        transform: scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        box-shadow: -1px 0px 9px 2px var(--cor2)   ;
+        transform: scale(1);
+    }
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 0.4;
+        box-shadow: var(--cor1) 4px 1px 394px 8px   ;
+        transform: scale(1);
+    }
+
+    to{
+        opacity: 1;
+        transform: scale(0.95);
+    }
 }
 
 .switch-button:active{
@@ -191,19 +269,99 @@ button{
 
 
 .email-switch{
-    width: 133px;
-    height: 36px;
-    position: relative;
-    top: -36px;
-    left: 153px;
+    width: 42px;
+    height: 39px;
 }
 
 .name-switch{
-    width: 133px;
-    height: 36px;
+    width: 44px;
+    height: 46px;
     position: relative;
 }
 
+
+.cancel-edit-name-button{
+    width: 45px;
+    height: 42px;
+    background: #f8f8f9;
+    border-radius: 9px;
+    color: rgba(255, 255, 255, 0.967);
+    font-size: 20px;
+    line-height: 2.6;
+    transition: box-shadow 0.4s ease;
+    white-space: nowrap;
+    display: none;
+}
+
+.cancel-edit-name-button:hover{
+    background-color: var(--cor4);
+}
+
+.edit-name-button{
+    display: block;
+}
+
+.accept-edit-name-button{
+    width: 45px;
+    height: 42px;
+    background: #f8f8f9;
+    border-radius: 9px;
+    color: rgba(255, 255, 255, 0.967);
+    font-size: 20px;
+    line-height: 2.6;
+    transition: box-shadow 0.4s ease;
+    white-space: nowrap;
+    display: none;
+}
+
+.accept-edit-name-button:hover{
+    background-color: var(--cor4);
+}
+
+.edit-name{
+    display: none;
+    position: relative;
+    left: 6px;
+    height: 51px;
+    width: 500px;
+    text-align: left;
+    top: 1px;   
+}
+
+.input-name-style{
+    position: relative;
+    border: none;
+    border-radius: 13px;
+    height: 48px;
+    width: 215px;
+    text-indent: 16px;
+    color: whitesmoke;
+    box-shadow: -1px 0px 9px 2px var(--cor2);
+    background-color: var(--cor3);
+    outline: none;
+}
+
+.input-name-style:active{
+    border: none;
+}
+
+.input-email-style{
+    position: relative;
+    border: none;
+    border-radius: 13px;
+    height: 48px;
+    width: 215px;
+    text-indent: 16px;
+    color: whitesmoke;
+    box-shadow: -1px 0px 9px 2px var(--cor2);
+    background-color: var(--cor3);
+    outline: none;
+    display: none;
+}
+
+.input-email-style:active{
+    border: none;
+}
 
 
 

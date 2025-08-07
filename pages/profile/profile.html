@@ -49,7 +49,25 @@
                     </div>
                 </div>
                 <div class="username-field">
+                    <div class="edit-name">
+                        <input name="newUsername" type="text" class="input-name-style new-username">
+                    </div>
                     <h1 class="username">Username</h1>
+                    <div class="name-switch" >
+                        <div class="switch-button switcher-name-button">  
+                            <button class="edit-name-button-style" onclick="editName()">
+                                <img src="../../forms/images/edit_26dp_1E2A33_FILL0_wght400_GRAD0_opsz24.png" alt="">
+                            </button>
+                        </div>
+                        <div class="edit-field">
+                            <button class="cancel-edit-name-button" onclick="cancelEditName()">
+                                <img src="../../forms/images/cancel-icon.png" alt="cancel">
+                            </button>
+                            <button class="accept-edit-name-button">
+                                <img src="../../forms/images/accept-icon.png" alt="accept" onclick="acceptEditName()">
+                            </button>
+                        </div>
+                    </div>
                 </div>
                 <div class="mail-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#1E2A33">
@@ -57,16 +75,16 @@
                     </svg>
                 </div>
                 <div class="email-field">
-                    <h3>example@gmail.com</h3>
-                </div>
-                <div class="name-switch">
-                    <div class="switch-button">
-                        <button>Trocar nome</button>
+                    <div class="edit-email">
+                        <input name="input" type="text" class="input-email-style">
                     </div>
-                </div>
-                <div class="email-switch">
-                    <div class="switch-button">
-                        <button>Trocar email</button>
+                    <h3>example@gmail.com</h3>
+                    <div class="email-switch">
+                        <div class="switch-button switcher-email-button">
+                            <button class="edit-email-button-style">
+                                <img src="../../forms/images/edit_26dp_1E2A33_FILL0_wght400_GRAD0_opsz24.png" alt="#">
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
